@@ -1,12 +1,14 @@
 package controllers
 
 import play.api.mvc.Controller
+import models.Ideia
+import play.api.mvc.Action
 
 
-class IdeiaController extends Controller{
+object IdeiaController extends Controller{
 
-	def list ={
-	  
+	def list = Action{
+			
 	}
   
 }
