@@ -5,4 +5,8 @@ import play.api.mvc.Controller
 
 class IdeiaController extends Controller{
 
+	def list ={
+	  
+	}
+  
 }
