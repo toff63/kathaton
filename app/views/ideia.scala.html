@@ -6,7 +6,7 @@
     <ul>
         @ideias.map { ideia =>
             <div>
-                @ideia.name
+                <a href="/hackathons/ideias/@ideia.id">@ideia.name</a>
                 <div class="progress">
   					<div class="bar" style="width: @ideia.rank%;"></div>
 				</div>
