@@ -2,14 +2,10 @@ package models
 
 import java.util.Date
 
-case class Hackathon(id: Long, project: String, date: Date)
+case class Hackathon(project: String, tech: String, date: Date)
 
 object Hackathon {
-  var hackatons:List[Hackathon] = List(new Hackathon(1,"Blastoise", new Date))
-  
-  def all(): List[Hackathon] = hackatons
-  def create(name: String) { 
-    hackatons :+ new Hackathon(hackatons.size, name, new Date)
-    }
-  def delete(id: Long) {}
+  def all(): List[Hackathon] = Nil
+  def create(project: String, tech: String, date: Date) {}
+  def delete(project: String) {}
 }
