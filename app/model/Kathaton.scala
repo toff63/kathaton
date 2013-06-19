@@ -7,9 +7,9 @@ case class Kathaton(id: String, name: String, date: Date)
 object  Kathaton {
   
    def all(): List[Kathaton] = Nil
+   
+   def create(kathaton: Kathaton) {}
   
-  def create(label: String) {}
-  
-  def delete(id: Long) {}
+   def delete(id: Long) {}
 
 }
