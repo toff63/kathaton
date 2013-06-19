@@ -5,7 +5,6 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc.Action
 import play.api.mvc.Controller
-import java.util.Date
 
 object Application extends Controller {
 
@@ -20,12 +19,14 @@ object Application extends Controller {
   def newHackathon = Action { implicit request =>
     hackathonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
-      project => {
-        Hackathon.create("", "", new Date())
+      label => {
+        Hackathon.create("","",new Date)
         Redirect(routes.Application.hackathons)
       })
   }
 
+  def updateHackathon(project: String) = TODO
+  
   def deleteHackathon(project: String) = TODO
 
     val hackathonForm = Form(
