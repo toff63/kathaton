@@ -11,12 +11,11 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     jdbc,
     anorm,
-   // "se.radley" %% "play-plugins-salat" % "1.2"
-    )
+    "com.novus" %% "salat" % "1.9.2-SNAPSHOT")
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-//    routesImport += "se.radley.plugin.salat.Binders._",
-//    templatesImport += "org.bson.types.ObjectId"
-      )
+    routesImport += "se.radley.plugin.salat.Binders._",
+    templatesImport += "org.bson.types.ObjectId",
+    resolvers += Resolver.sonatypeRepo("snapshots"))
 
 }
