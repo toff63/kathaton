@@ -12,7 +12,7 @@ object Application extends Controller {
     Redirect(routes.Application.hackathons)
   }
 
-  val hackatonForm = Form("label" -> nonEmptyText)
+  val hackatonForm = Form("Hackaton:" -> nonEmptyText)
 
   def hackathons = Action {
     Ok(views.html.index(Hackathon.all(), hackatonForm))
