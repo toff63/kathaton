@@ -1,19 +1,32 @@
 package controllers
 
-import play.api._
-import play.api.mvc._
+import models.Hackathon
+import play.api.data.Form
+import play.api.data.Forms.nonEmptyText
+import play.api.mvc.Action
+import play.api.mvc.Controller
 
 object Application extends Controller {
-  
+
   def index = Action {
-    Ok("Hello world")
- //  Redirect(routes.Application.hackathons)
+    Redirect(routes.Application.hackathons)
   }
-  
-  def hackathons = TODO
-  
-  def newHackathon = TODO
-  
+
+  val hackatonForm = Form("Hackaton:" -> nonEmptyText)
+
+  def hackathons = Action {
+    Ok(views.html.index(Hackathon.all(), hackatonForm))
+  }
+
+  def newHackathon = Action { implicit request =>
+    hackatonForm.bindFromRequest.fold(
+      errors => BadRequest(views.html.index(Hackathon.all(), errors)),
+      label => {
+        Hackathon.create(label)
+        Redirect(routes.Application.hackathons)
+      })
+  }
+
   def deleteHackathon(id: Long) = TODO
-  
+
 }
