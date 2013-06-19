@@ -6,7 +6,8 @@
 GET     /                           controllers.Application.index
 
 # Hackaton
-GET     /hackathons                 controllers.Application.hackathons
+#GET     /hackathons                 controllers.Application.hackathons
+GET     /hackathons                  controllers.Application.index
 POST    /hackathons                 controllers.Application.newHackathon
 POST    /hackathons/:id/delete      controllers.Application.deleteHackathon(id: Long)
 

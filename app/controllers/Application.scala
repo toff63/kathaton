@@ -6,7 +6,8 @@ import play.api.mvc._
 object Application extends Controller {
   
   def index = Action {
-    Redirect(routes.Application.hackathons)
+    Ok("Hello world")
+ //  Redirect(routes.Application.hackathons)
   }
   
   def hackathons = TODO
