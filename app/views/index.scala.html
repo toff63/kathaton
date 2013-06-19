@@ -1,4 +1,4 @@
-@(hackathons: List[Hackathon], hackathonForm: Form[String])
+@(hackathons: List[Hackathon], hackathonForm: Form[models.Hackathon])
 
 @import helper._
 
@@ -10,8 +10,7 @@
         @hackathons.map { hackathon =>
             <li>
                 @hackathon.project
-                
-                @form(routes.Application.deleteHackathon(hackathon.id)) {
+                @form(routes.Application.deleteHackathon(hackathon.project)) {
                     <input type="submit" value="Delete">
                 }
             </li>
@@ -22,9 +21,9 @@
     
     @form(routes.Application.newHackathon) {
         
-	    @inputText(hackathonForm("Hackaton:"))
+	    @inputText(hackathonForm("project"))
+	    @inputDate
 	    <input type="submit" value="Create">
-
     }
     
 }
