@@ -20,9 +20,9 @@
     <h2>Add a new hackathon</h2>
     
     @form(routes.Application.newHackathon) {
-        
 	    @inputText(hackathonForm("project"))
-	    @inputDate
+	    @inputText(hackathonForm("tech"))
+	    @inputDate(hackathonForm("date"))
 	    <input type="submit" value="Create">
     }
     
