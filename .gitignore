@@ -5,6 +5,3 @@ target
 tmp
 dist
 .cache
-.project
-.settings
-.classpath
