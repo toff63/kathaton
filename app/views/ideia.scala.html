@@ -5,12 +5,12 @@
 @main("HackALLthon manager") {
     <ul>
         @ideias.map { ideia =>
-            <li>
+            <div>
                 @ideia.name
-            </li>
-            <li>                
-            	@ideia.rank
-            </li>
+                <div class="progress">
+  					<div class="bar" style="width: @ideia.rank%;"></div>
+				</div>
+            </div>
         }
     </ul>    
 }
