@@ -8,3 +8,5 @@ dist
 .project
 .settings
 .classpath
+bin
+.target
