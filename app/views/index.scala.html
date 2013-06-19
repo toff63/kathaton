@@ -1,7 +1,31 @@
-@(message: String)
+@(hackathons: List[Hackathon], hackathonForm: Form[String])
 
-@main("Welcome to Play 2.1") {
+@import helper._
+
+@main("HackALLthon manager") {
     
-    @play20.welcome(message)
+    <h1>@hackathons.size hackathon(s)</h1>
+    
+    <ul>
+        @hackathons.map { hackathon =>
+            <li>
+                @hackathon.label
+                
+                @form(routes.Application.deleteHackathon(hackathon.id)) {
+                    <input type="submit" value="Delete">
+                }
+            </li>
+        }
+    </ul>
+    
+    <h2>Add a new hackathon</h2>
+    
+    @form(routes.Application.newHackathon) {
+        
+        @inputText(hackathonForm("label")) 
+        
+        <input type="submit" value="Create">
+        
+    }
     
 }
