@@ -9,7 +9,7 @@
     <ul>
         @hackathons.map { hackathon =>
             <li>
-                @hackathon.label
+                @hackathon.project
                 
                 @form(routes.Application.deleteHackathon(hackathon.id)) {
                     <input type="submit" value="Delete">
