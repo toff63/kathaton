@@ -18,7 +18,14 @@ object Application extends Controller {
     Ok(views.html.index(Hackathon.all(), hackatonForm))
   }
 
-  def newHackathon = TODO
+  def newHackathon = Action { implicit request =>
+    hackatonForm.bindFromRequest.fold(
+      errors => BadRequest(views.html.index(Hackathon.all(), errors)),
+      label => {
+        Hackathon.create(label)
+        Redirect(routes.Application.hackathons)
+      })
+  }
 
   def deleteHackathon(id: Long) = TODO
 
