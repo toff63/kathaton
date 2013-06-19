@@ -1,5 +1,5 @@
 package models
 
-class Ideia(id: Long, name: String, rank: Integer) {
+class Ideia(var id: Long, var name: String, var rank: Integer) {
 
 }
