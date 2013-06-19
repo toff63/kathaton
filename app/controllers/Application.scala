@@ -9,7 +9,7 @@ import play.api.mvc.Controller
 object Application extends Controller {
 
   def index = Action {
-   Redirect(routes.Application.hackathons)
+    Redirect(routes.Application.hackathons)
   }
 
   val hackatonForm = Form("label" -> nonEmptyText)
