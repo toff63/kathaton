@@ -10,7 +10,7 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     // Add your project dependencies here,
     jdbc,
-    anorm,
+    anorm
    // "se.radley" %% "play-plugins-salat" % "1.2"
     )
 
