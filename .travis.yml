@@ -1,12 +1,27 @@
-language: scala # to trigger the build on JVM worker ('language: java' works the same)
+---
+language: scala
 env:
-  - PLAY_VERSION=2.1.1 # Latest 2.1.x
+  matrix:
+  - PLAY_VERSION=2.1.1
+  global:
+    secure: ! 'U10UNCuXChb/W7i8eJfDcz9Vo6NbR5ie1ZoxCc92V/dAhYoYabN/R8Bfy10C
+
+      gLqhLdv5BA262YvantyHu8NubSrMhxzw9PFFrlvAlS0pV+iSsevwGkKpqCPg
+
+      JiGnCTKWkE/7VQtz/RLrbajnBvQxQV9s/M3rPx0PLknroOqzGOE='
 before_script:
-  - wget http://downloads.typesafe.com/play/2.1.1/play-${PLAY_VERSION}.zip
-  - unzip -q play-${PLAY_VERSION}.zip
+- wget http://downloads.typesafe.com/play/2.1.1/play-${PLAY_VERSION}.zip
+- unzip -q play-${PLAY_VERSION}.zip
 script: play-${PLAY_VERSION}/play test
 notifications:
-        # Email notifications are disabled to not annoy anybody.
-        #   # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
-        #     # about configuring notification recipients and more.
-        email: false
+  email: false
+after_success:
+  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  - git remote add heroku git@heroku.com:kathaton.git
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  - heroku keys:clear
+  - yes | heroku keys:add
+  - yes | git push heroku master
