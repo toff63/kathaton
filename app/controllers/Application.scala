@@ -9,4 +9,10 @@ object Application extends Controller {
     Ok(views.html.index("Your new application is ready."))
   }
   
+  def hackathons = TODO
+  
+  def newHackathon = TODO
+  
+  def deleteHackathon(id: Long) = TODO
+  
 }

@@ -5,6 +5,8 @@ target
 tmp
 dist
 .cache
+bin
+.target
 .project
 .settings
 .classpath
