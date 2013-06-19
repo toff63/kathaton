@@ -26,7 +26,7 @@ object Application extends Controller {
       })
   }
 
-  def deleteHackathon(id: Long) = TODO
+  def deleteHackathon(project: String) = TODO
 
     val hackathonForm = Form(
         mapping(

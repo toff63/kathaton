@@ -8,7 +8,7 @@ GET     /                           controllers.Application.index
 # Hackaton
 GET     /hackathons                 controllers.Application.hackathons
 POST    /hackathons                 controllers.Application.newHackathon
-POST    /hackathons/:id/delete      controllers.Application.deleteHackathon(id: Long)
+POST    /hackathons/:project/delete      controllers.Application.deleteHackathon(project: String)
 
 
 # Map static resources from the /public folder to the /assets URL path
