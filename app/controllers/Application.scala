@@ -5,7 +5,6 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc.Action
 import play.api.mvc.Controller
-import java.util.Date
 
 object Application extends Controller {
 
@@ -26,6 +25,8 @@ object Application extends Controller {
       })
   }
 
+  def updateHackathon(project: String) = TODO
+  
   def deleteHackathon(project: String) = TODO
 
     val hackathonForm = Form(
