@@ -10,3 +10,5 @@ bin
 .project
 .settings
 .classpath
+bin
+.target
