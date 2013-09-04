@@ -20,12 +20,12 @@ object Application extends Controller {
     Ok(views.html.index(Hackathon.all(), hackathonForm))
   }
 
-  def newHackathon = Action { implicit request =>
+  def newHackathon(tech:String) = Action { implicit request =>
     hackathonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
       label => {
       
-        Hackathon.create(Option["tech"],"",new Date)
+        Hackathon.create(tech,"",new Date)
         Redirect(routes.Application.hackathons)
       })
   }
