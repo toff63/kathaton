@@ -16,6 +16,8 @@ GET    /hackathons/ideias            controllers.IdeiasController.list
 GET    /hackathons/ideias/:id        controllers.IdeiasController.vote(id:Long)
 POST   /hackathons/news              controllers.Application.newHackathon
 
+GET		/hackathons/gambeiro			controllers.GambeiroController.list
+
 # Map static resources from the /public folder to the /assets URL path
 GET    /assets/*file                 controllers.Assets.at(path="/public", file)
 
