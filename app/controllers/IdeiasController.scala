@@ -7,7 +7,13 @@ import com.mongodb.casbah.MongoURI
 
 object IdeiasController extends Controller {
 
-  var listaString = List(new Ideia(1, "Bot para Gtalk", 20), new Ideia(2, "BatWar", 25), new Ideia(3, "Sistema de Apostas", 30), new Ideia(4, "Wiki interna", 10), new Ideia(5, "Cozinha Mais", 60))
+  var listaString = List(new Ideia(1, "Bot para Gtalk", 20), 
+		  				 new Ideia(2, "BatWar", 25), 
+		  				 new Ideia(3, "Sistema de Apostas", 30), 
+		  				 new Ideia(4, "Wiki interna", 10), 
+		  				 new Ideia(5, "Cozinha Mais", 60),
+		  				 new Ideia(6, "Bet System", 05)
+  )
 
   def list = Action {
     val mongoConn = MongoConnection(MongoURI("mongodb://kathaton:gambetinha@dharma.mongohq.com:10077/kathaton"))
