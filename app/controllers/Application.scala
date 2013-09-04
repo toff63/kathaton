@@ -20,7 +20,7 @@ object Application extends Controller {
     Ok(views.html.index(Hackathon.all(), hackathonForm))
   }
 
-  def newHackathon(tech:String) = Action { implicit request =>
+  def newHackathon(tech:String,project:String) = Action { implicit request =>
     hackathonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
       label => {
