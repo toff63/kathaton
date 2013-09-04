@@ -10,6 +10,12 @@ object IdeiasController extends Controller {
 
   def list = Action {
   	val mongoConn = MongoConnection()
+  	val mongoColl = mongoConn("kathaton")("ideias")
+  	mongoColl.find()
+  	mongoColl.find().foreach { x =>
+  	    listaString=listaString:::List(new Ideia(1, "%s".format(x("name")),1))
+  		println("Found a user! %s".format(x("name")))
+  	}
     Ok(views.html.ideia(listaString))
   }
   
