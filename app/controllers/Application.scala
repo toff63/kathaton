@@ -14,7 +14,7 @@ object Application extends Controller {
   }
 
   def news = Action {
-  	  Ok(views.html.index(Hackathon.all(), hackathonForm))
+  	  Redirect(routes.Application.hackathons)
   } 
   def hackathons = Action {
     Ok(views.html.index(Hackathon.all(), hackathonForm))
@@ -28,7 +28,7 @@ object Application extends Controller {
         Redirect(routes.Application.hackathons)
       })
   }
-
+  
   def updateHackathon(project: String) = TODO
   
   def deleteHackathon(project: String) = TODO
