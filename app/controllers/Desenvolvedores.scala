@@ -14,7 +14,16 @@ object Desenvolvedores extends Controller {
   	Ok(views.html.Desenvolvedor.list(desenvolvedores))
   }
   
-  def desenvolvedor(id:Long) = Action {
+  def delete(id:Integer) = Action {
+    desenvolvedores = desenvolvedores.filterNot(id == _.id);
+    Ok(views.html.Desenvolvedor.list(desenvolvedores))
+  }
+  
+  def create() = Action {
+    Ok("")
+  }
+  
+  def desenvolvedor(id:Integer) = Action {
     var desenvolvedor = desenvolvedores.filter(id == _.id)
     if (desenvolvedor != null) Ok(views.html.Desenvolvedor.update(desenvolvedor))
     else NotFound("User not found")
