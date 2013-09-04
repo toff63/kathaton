@@ -23,8 +23,8 @@ object Application extends Controller {
   def newHackathon = Action { implicit request =>
     hackathonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
-      label => {
-        Hackathon.create("","",new Date)
+      hackathon => {
+        Hackathon.create(hackathon.project,hackathon.tech,hackathon.date)
         Redirect(routes.Application.hackathons)
       })
   }
