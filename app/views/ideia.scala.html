@@ -3,12 +3,16 @@
 @import helper._
 
 @main("HackALLthon manager") {
+	 @ideias.map { ideia =>
+	 	
+	 }
+	
     <ul>
         @ideias.map { ideia =>
            <li> <div>
                 <a href="/hackathons/ideias/@ideia.id">@ideia.name</a>
                 <div class="progress">
-  					<div class="bar" style="width: @ideia.rank%;"></div>
+  					<div class="bar" style="width: @ideia.rank%;">@ideia.rank%</div>
 				</div>
             </div>
             </li>
