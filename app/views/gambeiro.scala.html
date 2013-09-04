@@ -1,0 +1,21 @@
+@(gambeiros: List[Gambeiro])
+
+@import helper._
+
+@main("Todo list") {
+    
+    <h1>Total Gambeiro(s): @gambeiros.size</h1>
+    
+    <ul>
+        @gambeiros.map { gambeiro =>
+            <li>
+                @gambeiro.name
+                
+                
+            </li>
+        }
+    </ul>
+    
+   
+    
+}
