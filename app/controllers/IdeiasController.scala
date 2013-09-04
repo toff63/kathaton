@@ -15,14 +15,22 @@ object IdeiasController extends Controller {
 
   	mongoColl.find()
   	mongoColl.find().foreach { x =>
-        listaString=listaString:::List(new Ideia("%s".format(x("_id")), "%s".format(x("name")),1))
+        listaString=listaString:::List(new Ideia("%s".format(x("_id")), "%s".format(x("name")),0,0))
   		println("Found a user! %s".format(x("name")))
   	}
     Ok(views.html.ideia(listaString))
   }
   
   def vote(id:String) = Action{
-    listaString.filter(id == _.id).map(_.rank +=10);
+    // soma voto
+    listaString.filter(_.id==id).map(m => m.totalVotos += 1 )
+
+    // calcula percentual de cada ideia
+    val somaVotos = listaString.map(_.rank).foldLeft(0)(_+_)
+
+    if(somaVotos>0)
+      listaString.map(m => m.rank = m.totalVotos * 100 / somaVotos)
+
     Ok(views.html.ideia(listaString))
   }
   
