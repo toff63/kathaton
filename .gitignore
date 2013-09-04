@@ -12,3 +12,11 @@ bin
 .classpath
 bin
 .target
+
+.metadata
+
+#IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
