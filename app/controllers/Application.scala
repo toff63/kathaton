@@ -13,7 +13,7 @@ object Application extends Controller {
     Redirect(routes.Application.hackathons)
   }
 
-  def new = Action {
+  def news = Action {
   	Ok(views.html.index(Hackathon.all(), hackathonForm))
   } 
   def hackathons = Action {
