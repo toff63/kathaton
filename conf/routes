@@ -10,7 +10,8 @@ GET     /hackathons                 controllers.Application.hackathons
 POST    /hackathons/:project/delete      controllers.Application.deleteHackathon(project: String)
 GET		/hackathons/ideias			controllers.IdeiasController.list
 GET		/hackathons/ideias/:id			controllers.IdeiasController.vote(id:Long)
-POST	/hackathons/news/:tech/:project 	controllers.Application.newHackathon(tech:String,project:String)
+GET 	/hackathons/news controllers.Application.hackathons
+POST	/hackathons/news 	controllers.Application.newHackathon(tech:String,project:String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
