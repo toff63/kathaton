@@ -1,0 +1,21 @@
+@(desenvolvedores: List[Desenvolvedor])
+
+@import helper._
+
+@main("HackALLthon Editar Desenvolvedor") {
+	 @desenvolvedores.map { desenvolvedor =>
+	 	
+	 }
+	
+    <ul>
+        @desenvolvedores.map { desenvolvedor =>
+           <div>
+           		ID: @desenvolvedor.id</br>
+                Nickname: @desenvolvedor.nickname</br>
+                Twitter: @desenvolvedor.twitter</br>
+                
+            </div>
+            
+        }
+    </ul>    
+}
