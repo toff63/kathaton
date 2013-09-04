@@ -25,5 +25,9 @@ object IdeiasController extends Controller {
     listaString.filter(id == _.id).map(_.rank +=10);
     Ok(views.html.ideia(listaString))
   }
+
+  def add(ideia: Ideia) = Action {
+    Ok(views.html.ideia(listaString))
+  }
   
 }
