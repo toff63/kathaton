@@ -4,18 +4,17 @@ import play.Project._
 
 object ApplicationBuild extends Build {
 
-  val appName         = "kathaton"
-  val appVersion      = "1.0-SNAPSHOT"
+  val appName = "kathaton"
+  val appVersion = "1.0-SNAPSHOT"
 
   val appDependencies = Seq(
     // Add your project dependencies here,
     jdbc,
-    anorm
-  )
-
+    anorm,
+    "se.radley" % "play-plugins-salat_2.10" % "1.2")
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    // Add your own project settings here      
+    resolvers += "Typesafe Repository 2" at "http://repo.typesafe.com/typesafe/repo/"
   )
 
 }

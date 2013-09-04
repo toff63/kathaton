@@ -5,13 +5,12 @@
 @main("HackALLthon manager") {
     <ul>
         @ideias.map { ideia =>
-           <li> <div>
+            <div>
                 <a href="/hackathons/ideias/@ideia.id">@ideia.name</a>
                 <div class="progress">
   					<div class="bar" style="width: @ideia.rank%;"></div>
 				</div>
             </div>
-            </li>
         }
     </ul>    
 }
