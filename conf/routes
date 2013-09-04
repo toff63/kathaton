@@ -8,6 +8,9 @@ GET     /                           controllers.Application.index
 # Hackaton
 GET     /hackathons                 controllers.Application.hackathons
 POST    /hackathons/:project/delete      controllers.Application.deleteHackathon(project: String)
+
+GET     /hackathons/languages        controllers.LanguagesController.list
+
 GET		/hackathons/ideias			controllers.IdeiasController.list
 GET		/hackathons/ideias/:id			controllers.IdeiasController.vote(id:Long)
 GET 	/hackathons/news controllers.Application.hackathons
