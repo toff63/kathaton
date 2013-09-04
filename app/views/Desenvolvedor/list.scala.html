@@ -3,9 +3,8 @@
 @import helper._
 
 @main("HackALLthon Desenvolvedores") {
-<a href="/hackathons/desenvolvedores/create">Novo Desenvolvedor</a>
+<legend>Desenvolvedores</legend>
 <table class="table table-bordered">
-	<caption>Lista de Desenvolvedores</caption>
 	<thead>
 		<tr>
 			<th></th>
@@ -17,7 +16,12 @@
 	<tbody>
 		@desenvolvedores.map { desenvolvedor =>
 			<tr>
-				<td><button class="btn btn-mini btn-danger" type="button">Delete</button></td>
+				<td>
+				<div class="btn-group">
+					<a class="btn btn-mini btn-danger" type="button">Delete</a>
+					<a class="btn btn-mini btn-warning" type="button">Update</a>
+				</div>
+				</td>
 				<td>@desenvolvedor.id</td>
 				<td>@desenvolvedor.nickname</td>
 				<td>@desenvolvedor.twitter</td>
@@ -25,4 +29,5 @@
         }
 	</tbody>
 </table>
+<a class="btn btn-primary" href="/hackathons/desenvolvedores/create"><i class="icon-plus-sign icon-white"></i> Desenvolvedor</a>
 }
