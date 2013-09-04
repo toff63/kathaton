@@ -24,7 +24,8 @@ object Application extends Controller {
     hackathonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
       label => {
-        Hackathon.create(request.body.asFormUrlEncoded.get("tech"),"",new Date)
+      
+        Hackathon.create(hackathonForm("tech"),"",new Date)
         Redirect(routes.Application.hackathons)
       })
   }
