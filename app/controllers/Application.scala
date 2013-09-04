@@ -1,3 +1,5 @@
+
+
 package controllers
 
 import models.Hackathon
@@ -13,21 +15,16 @@ object Application extends Controller {
     Redirect(routes.Application.hackathons)
   }
 
-  def news(tech:String,project:String) = Action {
-  	  Ok(views.html.index(Hackathon.all(), hackathonForm))
+  def news = Action {
+  	  Redirect(routes.Application.hackathons)
   } 
   def hackathons = Action {
     Ok(views.html.index(Hackathon.all(), hackathonForm))
   }
 
-  def newHackathon = Action { implicit request =>
-    hackathonForm.bindFromRequest.fold(
-      errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
-      label => {
-      
-        Hackathon.create(tech,"",new Date)
+  def newHackathon(tech:String,project:String) = Action {
+        Hackathon.create("","",new Date)
         Redirect(routes.Application.hackathons)
-      })
   }
 
   def updateHackathon(project: String) = TODO

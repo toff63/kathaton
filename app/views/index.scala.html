@@ -19,7 +19,7 @@
     
     <h2>Add a new hackathon</h2>
     
-    @form(routes.Application.newHackathon) {
+    @form(routes.Application.newHackathon("","")) {
 	   	@inputText(field = hackathonForm("project"), args = '_label -> "Project:")
 	    @inputText(field = hackathonForm("tech"), args = '_label -> "Tech:")
 	    @inputDate(field = hackathonForm("date"), args = '_label -> "Date:")
