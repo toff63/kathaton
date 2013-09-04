@@ -23,7 +23,8 @@ object Application extends Controller {
   }
 
   def newHackathon(tech:String,project:String) = Action {
-        Hackathon.create("","",new Date)
+  	println("in...tech: "+tech+" project:"+project);
+        Hackathon.create(tech,project,new Date)
         Redirect(routes.Application.hackathons)
   }
 
