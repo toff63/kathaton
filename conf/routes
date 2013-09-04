@@ -13,7 +13,7 @@ GET    /hackathons/languages         controllers.LanguagesController.list
 GET    /hackathons/languages/:id     controllers.LanguagesController.vote(id:Long)
 
 GET    /hackathons/ideias            controllers.IdeiasController.list
-GET    /hackathons/ideias/:id        controllers.IdeiasController.vote(id:Long)
+GET    /hackathons/ideias/:id        controllers.IdeiasController.vote(id:String)
 POST   /hackathons/news              controllers.Application.newHackathon
 
 GET		/hackathons/desenvolvedores 	controllers.Desenvolvedores.list

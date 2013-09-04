@@ -7,13 +7,7 @@ import com.mongodb.casbah.MongoURI
 
 object IdeiasController extends Controller {
 
-  var listaString = List(new Ideia(1, "Bot para Gtalk", 20), 
-		  				 new Ideia(2, "BatWar", 25), 
-		  				 new Ideia(3, "Sistema de Apostas", 30), 
-		  				 new Ideia(4, "Wiki interna", 10), 
-		  				 new Ideia(5, "Cozinha Mais", 60),
-		  				 new Ideia(6, "Bet System", 05)
-  )
+  var listaString = List[Ideia]()
 
   def list = Action {
     val mongoConn = MongoConnection(MongoURI("mongodb://kathaton:gambetinha@dharma.mongohq.com:10077/kathaton"))
@@ -21,18 +15,14 @@ object IdeiasController extends Controller {
 
   	mongoColl.find()
   	mongoColl.find().foreach { x =>
-  	    listaString=listaString:::List(new Ideia(1, "%s".format(x("name")),1))
+        listaString=listaString:::List(new Ideia("%s".format(x("_id")), "%s".format(x("name")),1))
   		println("Found a user! %s".format(x("name")))
   	}
     Ok(views.html.ideia(listaString))
   }
   
-  def vote(id:Long) = Action{
+  def vote(id:String) = Action{
     listaString.filter(id == _.id).map(_.rank +=10);
-    Ok(views.html.ideia(listaString))
-  }
-
-  def add(ideia: Ideia) = Action {
     Ok(views.html.ideia(listaString))
   }
   
