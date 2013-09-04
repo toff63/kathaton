@@ -1,0 +1,21 @@
+@(languages: List[Ideia])
+
+@import helper._
+
+@main("HackALLthon manager") {
+	 @languages.map { language =>
+	 	
+	 }
+	
+    <ul>
+        @languages.map { language =>
+           <li> <div>
+                <a href="/hackathons/languages/@language.id">@language.name</a>
+                <div class="progress">
+  					<div class="bar" style="width: @language.rank%;">@language.rank%</div>
+				</div>
+            </div>
+            </li>
+        }
+    </ul>    
+}

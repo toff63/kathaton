@@ -8,10 +8,10 @@ object Hackathon {
   
   var hackatons:List[Hackathon] = List(new Hackathon("Gambetta", "Groovy", new Date))
   
-  def all(): List[Hackathon] = Nil
+  def all(): List[Hackathon] = hackatons
   
-  def create(project: String, tech: String, date: Date) {
-    hackatons :+ new Hackathon(project, tech, new Date)
+  def create(project: String, tech: String, date: Date): Unit = {
+    hackatons = hackatons ++ List( new Hackathon(project, tech, date))
   }
   
   def delete(project: String) {}
