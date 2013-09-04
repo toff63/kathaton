@@ -9,8 +9,7 @@ object IdeiasController extends Controller {
   var listaString = List(new Ideia(1, "Bot para Gtalk", 20), new Ideia(2, "BatWar", 25), new Ideia(3, "Sistema de Apostas", 30), new Ideia(4, "Wiki interna", 10))
 
   def list = Action {
-  	val mongoConn = MongoConnection("kathaton")
-  	val mongoDB = mongoConn("casbah_test")
+  	val mongoConn = MongoConnection()
     Ok(views.html.ideia(listaString))
   }
   
