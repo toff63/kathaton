@@ -25,7 +25,7 @@ object Application extends Controller {
       errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
       label => {
       
-        Hackathon.create(hackathonForm("tech"),"",new Date)
+        Hackathon.create(Option["tech"],"",new Date)
         Redirect(routes.Application.hackathons)
       })
   }
