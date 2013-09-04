@@ -1,0 +1,18 @@
+@(desenvolvedores: List[Desenvolvedor])
+
+@import helper._
+
+@main("HackALLthon Desenvolvedores") {
+	 @desenvolvedores.map { desenvolvedor =>
+	 	
+	 }
+	
+    <ul>
+        @desenvolvedores.map { desenvolvedor =>
+           <li> <div>
+                <a href="/hackathons/desenvolvedores/@desenvolvedor.id">@desenvolvedor.nickname</a>
+            </div>
+            </li>
+        }
+    </ul>    
+}
