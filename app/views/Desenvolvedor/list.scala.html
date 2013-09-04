@@ -3,16 +3,26 @@
 @import helper._
 
 @main("HackALLthon Desenvolvedores") {
-	 @desenvolvedores.map { desenvolvedor =>
-	 	
-	 }
-	<a href="/hackathons/desenvolvedores/create">Novo Desenvolvedor</a>
-    <ul>
-        @desenvolvedores.map { desenvolvedor =>
-           <li> <div>
-                <a href="/hackathons/desenvolvedores/@desenvolvedor.id">X</a> - <a href="/hackathons/desenvolvedores/@desenvolvedor.id">@desenvolvedor.nickname</a>
-            </div>
-            </li>
+<a href="/hackathons/desenvolvedores/create">Novo Desenvolvedor</a>
+<table class="table table-bordered">
+	<caption>Lista de Desenvolvedores</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Id</th>
+			<th>Nickname</th>
+			<th>Twitter</th>
+		</tr>
+	</thead>
+	<tbody>
+		@desenvolvedores.map { desenvolvedor =>
+			<tr>
+				<td><button class="btn btn-mini btn-danger" type="button">Delete</button></td>
+				<td>@desenvolvedor.id</td>
+				<td>@desenvolvedor.nickname</td>
+				<td>@desenvolvedor.twitter</td>
+			</tr>
         }
-    </ul>    
+	</tbody>
+</table>
 }

@@ -4,6 +4,7 @@ import play.api.mvc._
 import com.mongodb.casbah.Imports._
 import models.Desenvolvedor
 import models.Desenvolvedor
+import models.Desenvolvedor
 
 object Desenvolvedores extends Controller {
 
@@ -19,8 +20,13 @@ object Desenvolvedores extends Controller {
     Ok(views.html.Desenvolvedor.list(desenvolvedores))
   }
   
-  def create() = Action {
-    Ok("")
+  def createForm() = Action {
+    Ok(views.html.Desenvolvedor.create())
+  }
+  
+  def create(desenvolvedor: Desenvolvedor) = Action {
+    desenvolvedores:+desenvolvedor
+    Ok(views.html.Desenvolvedor.list(desenvolvedores))
   }
   
   def desenvolvedor(id:Integer) = Action {

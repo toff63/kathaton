@@ -16,6 +16,7 @@ GET    /hackathons/ideias            controllers.IdeiasController.list
 GET    /hackathons/ideias/:id        controllers.IdeiasController.vote(id:Long)
 POST   /hackathons/news              controllers.Application.newHackathon
 
+GET		/hackathons/desenvolvedores/create 	controllers.Desenvolvedores.createForm
 GET		/hackathons/desenvolvedores 	controllers.Desenvolvedores.list
 GET		/hackathons/desenvolvedores/:id	controllers.Desenvolvedores.desenvolvedor(id:Integer)
 DELETE	/hackathons/desenvolvedores/:id	controllers.Desenvolvedores.delete(id:Integer)
