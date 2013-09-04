@@ -13,14 +13,14 @@ object Application extends Controller {
     Redirect(routes.Application.hackathons)
   }
 
-  def news = Action {
+  def news(tech:String,project:String) = Action {
   	  Ok(views.html.index(Hackathon.all(), hackathonForm))
   } 
   def hackathons = Action {
     Ok(views.html.index(Hackathon.all(), hackathonForm))
   }
 
-  def newHackathon(tech:String,project:String) = Action { implicit request =>
+  def newHackathon = Action { implicit request =>
     hackathonForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(Hackathon.all(), hackathonForm)),
       label => {
