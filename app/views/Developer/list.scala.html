@@ -1,0 +1,33 @@
+@(developers: List[Developer])
+
+@import helper._
+
+@main("HackALLthon Desenvolvedores") {
+<legend>Developers</legend>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nickname</th>
+			<th>Twitter</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@developers.map { developer =>
+			<tr>
+				<td>@developer.id</td>
+				<td>@developer.nickname</td>
+				<td>@developer.twitter</td>
+				<td>
+				<div class="btn-group">
+					<a class="btn btn-mini btn-danger" type="button">Delete</a>
+					<a class="btn btn-mini btn-warning" type="button">Update</a>
+				</div>
+				</td>
+			</tr>
+        }
+	</tbody>
+</table>
+<a class="btn btn-small btn-primary" href="/hackathons/desenvolvedores/create"><i class="icon-plus-sign icon-white"></i> Developer</a>
+}
